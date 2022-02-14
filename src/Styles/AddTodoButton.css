@@ -1,0 +1,21 @@
+.AddTodoButton {
+    width: 80px;
+    height: 80px;
+    position: fixed;
+    bottom: 15px;
+    right: 20px;
+    outline: none;
+    border: none;
+    border-radius: 50%;
+    background-color: #000;
+    color: #fff;
+    font-weight: 900;
+    font-size: 2.4em;
+    padding: 10px;
+    cursor: pointer;
+    transition: transform 200ms
+}
+
+.AddTodoButton:active {
+    transform: scale(0.7);
+}

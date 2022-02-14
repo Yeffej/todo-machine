@@ -1,0 +1,39 @@
+.TodoItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 8px;
+    box-sizing: border-box;
+    box-shadow: 0px 0px 6px 1px #ffffff,
+                0px 0px 5px 1px #000000;
+    padding: 8px;
+    margin-bottom: 15px;
+}
+
+.TodoItem_description{
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+.icon {
+    padding: 6px;
+    font-weight: 900;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+.icon-complete {
+    margin-left: 10px;
+    color: #00a023;
+}
+.icon-delete {
+    margin-right: 10px;
+    font-style: normal;
+    color: #ff3434;
+}
+
+.TodoItem.completed  .TodoItem_description {
+    text-decoration: line-through;
+}
+.TodoItem.completed {
+    opacity: 0.5;
+}

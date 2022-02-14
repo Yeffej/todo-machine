@@ -1,0 +1,22 @@
+/* GLOBAL STYLES */
+:root {
+  --background: linear-gradient(60deg, #fff, #7c7a7a);
+  --fontColor: #000;
+  --font: 'Roboto', sans-serif;
+}
+
+body {
+  background: var(--background);
+  font-family: var(--font);
+  color: var(--fontColor);
+  margin: 0;
+  min-height: 100vh;
+}
+
+#root {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+

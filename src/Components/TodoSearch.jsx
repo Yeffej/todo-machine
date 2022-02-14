@@ -1,6 +1,9 @@
+// Styles
+import '../Styles/TodoSearch.css';
+
 const TodoSearch = ()=> {
     return (
-        <input type="text" placeholder="Buscar..."/>
+        <input className="TodoSearch" type="text" placeholder="Buscar..."/>
     )
 }
 
