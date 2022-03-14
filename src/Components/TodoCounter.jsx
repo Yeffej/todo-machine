@@ -1,9 +1,9 @@
 // Styles
 import '../Styles/TodoCounter.css';
 
-const TodoCounter = ()=> {
+const TodoCounter = ({completedCount, totalTodos})=> {
     return (
-        <h3 className="TodoCounter">Has completado 2 de 3</h3>
+        <h3 className="TodoCounter">Has completado {completedCount} de {totalTodos}</h3>
     )
 }
 

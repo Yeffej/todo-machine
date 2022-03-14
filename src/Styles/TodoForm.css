@@ -1,0 +1,30 @@
+.TodoForm {
+   display: flex;
+   align-items: center;
+   flex-direction: column;
+   min-width: 400px;
+}
+
+.TodoForm label {
+    font-size: 1.3em;
+    font-weight: 600;
+    text-decoration: underline;
+    margin-bottom: 15px;
+    letter-spacing: 4px;
+    text-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.6);
+}
+
+.TodoForm textarea {
+    width: 70%;
+    padding: 8px;
+    font-size: 1.5em;
+    font-weight: 600;
+    outline:  3px solid #eeeeee;
+    box-shadow: 1px 1px 5px 1px #302e2e;
+    border: solid 1px #000000;
+}
+
+.TodoForm textarea::placeholder {
+    font-size: 1.5em;
+    font-weight: 600;
+}
