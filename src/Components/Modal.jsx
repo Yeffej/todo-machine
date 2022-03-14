@@ -9,19 +9,18 @@ import "../Styles/Modal.css";
 
 function Modal ({ children }) {
     const {
-        setModalActive,
         animationClass,
-        setAnimationClass
+        SetModalState
     } = React.useContext(TodoContext)
 
     const OnAnimationEnd = (e) => {
         if(e.animationName === "ModalOut"){
-            setModalActive(false)
+            SetModalState(false, true)
         }
     }
     const OnOverlayClick= (e) => {
         if(e.target.className === "Modal-Overlay"){
-            setAnimationClass('Out')
+            SetModalState(false)
         }
     }
 

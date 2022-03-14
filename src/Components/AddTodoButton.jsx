@@ -8,15 +8,13 @@ import '../Styles/AddTodoButton.css';
 
 const AddTodoButton = ()=> {
     const { 
-        setModalActive,
+        SetModalState,
         modalActive,
-        setAnimationClass, 
         animationClass
     } = React.useContext(TodoContext)
 
     const OnClick = (e)=>  {
-        setModalActive(true)
-        setAnimationClass(animationClass === 'In'? "Out" : "In" )
+        SetModalState(true)
 
         // Animate button element
         if(animationClass === 'Out') {

@@ -11,6 +11,7 @@ import { AddTodoButton } from "./AddTodoButton";
 import { TodoContext } from "./TodoContext";
 import { Modal } from "./Modal";
 import { TodoForm } from "./TodoForm";
+import  {TodoLoader} from "./TodoLoader";
 
 // Styles
 import '../Styles/App.css';
@@ -36,7 +37,7 @@ function AppUI() {
       <TodoCounter completedCount={todosCompleted} totalTodos={todoCount}/>
       <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue}/>
       <TodoList>
-        {loading && <p>Cargando Todos... Por favor espere.</p>}
+        {loading && <TodoLoader/>}
         {error && <p>Ha ocurrido un error al cargar los todos. 
             Recargue la pagina o reporte este error.</p>}
 

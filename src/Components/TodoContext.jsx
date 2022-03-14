@@ -40,6 +40,34 @@ function TodoProvider ({ children }) {
     const [modalActive, setModalActive] = React.useState(false)
     const [animationClass, setAnimationClass] = React.useState('')
 
+    const SetModalState = (state = modalActive, animationOutEnd = false) => {
+        if (state) {
+            setModalActive(true)
+        }
+        
+        if(!animationOutEnd) {
+            setAnimationClass(animationClass === 'In'? "Out" : "In" )
+
+        }else {
+            setModalActive(false)
+        }
+    }
+
+    const CreateTodo = (todoText) => {
+        // create new todo
+        const lastTodoID = todos[todos.length - 1].id
+        const newTodo = {
+            id: lastTodoID + 1,
+            text: todoText,
+            completed: false
+        }
+        
+        // Save new todos
+        saveTodos([...todos, newTodo])
+        // Close modal.
+        SetModalState(false)
+    }
+
     const GlobalProps = {
         todoCount,
         searchValue,
@@ -48,12 +76,12 @@ function TodoProvider ({ children }) {
         searchTodos,
         onCompleted,
         onDeleted,
+        CreateTodo,
         loading,
         error,
         modalActive,
-        setModalActive,
+        SetModalState,
         animationClass,
-        setAnimationClass
     }
 
     return (
