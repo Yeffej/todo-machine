@@ -37,3 +37,9 @@
 .TodoItem.completed {
     opacity: 0.5;
 }
+
+@media screen and (max-width: 490px) {
+    .TodoItem_description {
+        font-size: 0.9em;
+    }
+}

@@ -18,3 +18,9 @@
     text-align: start;
     color: rgba(0, 0, 0, 0.68);
 }
+
+@media screen and (max-width: 490px) {
+    .TodoSearch::placeholder {
+        font-size: .9em;
+    }
+}

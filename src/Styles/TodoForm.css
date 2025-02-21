@@ -2,7 +2,8 @@
    display: flex;
    align-items: center;
    flex-direction: column;
-   min-width: 400px;
+   width: 100%;
+   min-width: 250px;
 }
 
 .TodoForm label {
@@ -28,7 +29,7 @@
 }
 
 .TodoForm textarea::placeholder {
-    font-size: 1.5em;
+    font-size: 1.2em;
     font-weight: 600;
 }
 
@@ -49,10 +50,29 @@
     transform: scale(0.7);
 }
 .TodoForm .btn.cancel {
-    background-color: #dd0000;
+    background-color: #222;
+    color: #fff;
     margin-right: 10px;
 }
 .TodoForm .btn.create {
-    background-color: #00dd00;
+    background-color: #fff;
     margin-left: 10px;
+}
+
+
+@media screen and (max-width: 490px) {
+    .TodoForm {
+        width: 280px;
+    }
+    .TodoForm label {
+        font-size: 1.1em;
+    }
+    .TodoForm textarea {
+        width: 85%;
+        height: 80px;
+        font-size: 1.2em;
+    }
+    .TodoForm textarea::placeholder {
+        font-size: 0.9em;
+    }
 }

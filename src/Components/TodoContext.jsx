@@ -55,7 +55,7 @@ function TodoProvider ({ children }) {
 
     const CreateTodo = (todoText) => {
         // create new todo
-        const lastTodoID = todos[todos.length - 1].id
+        const lastTodoID = todos.length > 0? todos[todos.length - 1].id: 0
         const newTodo = {
             id: lastTodoID + 1,
             text: todoText,

@@ -33,6 +33,7 @@ const AddTodoButton = ()=> {
 
     return (
         <button 
+            title='Add Task'
             onClick={OnClick} 
             className={`AddTodoButton ${modalActive && AnimationButton} `}
         >+</button>

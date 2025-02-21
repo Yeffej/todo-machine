@@ -3,3 +3,9 @@
     font-weight: 700;
     text-align: center;
 }
+
+@media screen {
+    .TodoCounter {
+        font-size: 1.3em;
+    }    
+}
