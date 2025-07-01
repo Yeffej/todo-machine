@@ -1,43 +1,27 @@
-import React from 'react';
+import "../Styles/AddTodoButton.css";
 
-// Components
+import { useContext } from "react";
 import { TodoContext } from "./TodoContext";
+import { MdAdd } from "react-icons/md";
 
-// Styles
-import '../Styles/AddTodoButton.css';
 
-const AddTodoButton = ()=> {
-    const { 
-        SetModalState,
-        modalActive,
-        animationClass
-    } = React.useContext(TodoContext)
+const AddTodoButton = () => {
+  const { SetModalState, modalActive, animationClass } = useContext(TodoContext);
 
-    const OnClick = (e)=>  {
-        SetModalState(true)
+  const OnClick = () => {
+    SetModalState(true);
+  };
 
-        // Animate button element
-        if(animationClass === 'Out') {
-            e.target.classList.remove("animateX")
-            e.target.classList.add("animatePlus")
-        }else {
-            e.target.classList.remove("animatePlus")
-            e.target.classList.add("animateX")
-        }
-        
-    }
+  const animation = animationClass === "In" ? "active" : "";
+  return (
+    <button
+      title="Add Task"
+      onClick={OnClick}
+      className={`AddTodoButton ${modalActive && animation} `}
+    >
+      <MdAdd />
+    </button>
+  );
+};
 
-    const AnimationButton = animationClass === 'In'
-        ? "animateX"
-        : "animatePlus"
-
-    return (
-        <button 
-            title='Add Task'
-            onClick={OnClick} 
-            className={`AddTodoButton ${modalActive && AnimationButton} `}
-        >+</button>
-    )
-}
-
-export { AddTodoButton }
+export { AddTodoButton };

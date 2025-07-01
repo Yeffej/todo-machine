@@ -1,9 +1,10 @@
 .TodoList {
-    width: 70%;
-    min-width: 250px;
-    max-width: 500px;
     padding: 8px;
     margin: 7px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    min-height: 40px;
 }
 
 @media screen and (max-width: 490px) {

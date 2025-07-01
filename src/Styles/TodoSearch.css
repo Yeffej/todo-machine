@@ -1,26 +1,19 @@
 .TodoSearch {
     display: block;
-    background-color: transparent;
-    border: 2px solid #000;
-    border-radius: 5px;
-    padding: 10px;
-    font-size: 1.2em;
-    font-weight: 400;
     width: 80%;
-    max-width: 420px;
     margin: 0 auto;
+    padding: 10px 14px;
+    background-color: transparent;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 400;
+    transition: border 0.4s, box-shadow 0.4s;
+}
+
+.TodoSearch:focus {
+    border: 2px solid var(--action-color);
+    box-shadow: 0 0 5px var(--action-color);
     outline: none;
 }
 
-.TodoSearch::placeholder {
-    font-size: 1.2em;
-    font-weight: 600;
-    text-align: start;
-    color: rgba(0, 0, 0, 0.68);
-}
-
-@media screen and (max-width: 490px) {
-    .TodoSearch::placeholder {
-        font-size: .9em;
-    }
-}

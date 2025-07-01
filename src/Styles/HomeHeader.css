@@ -1,0 +1,227 @@
+.HomeHeader {
+  width: 100%;
+  height: 5rem;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 24px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: FadeBgIn 0.5s ease-in-out forwards;
+}
+.HomeHeader.active {
+  animation: FadeIn 0.8s linear forwards;
+  position: fixed;
+  z-index: 10;
+}
+
+.HomeHeader a,
+.HomeHeader li {
+  cursor: url("/images/cursor.png") 0 0, auto;
+}
+
+.HomeHeader .logo {
+  width: 150px;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  will-change: filter;
+  transition: filter 300ms;
+  cursor: pointer;
+}
+.HomeHeader .logo:hover {
+  filter: drop-shadow(0 0 2em var(--action-color));
+}
+.HomeHeader .logo img {
+  width: 100%;
+  height: 100%;
+}
+
+.HomeHeader nav {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.HomeHeader ul {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+  align-items: stretch;
+  /* gap: 32px; */
+}
+
+.HomeHeader nav li {
+  height: inherit;
+  display: flex;
+  align-items: center;
+  padding: 0 32px; /* GAP BETWEEN LINKS */
+  font-size: 1.2em;
+  color: rgba(var(--font-color-rgb), 0.7);
+  position: relative;
+  transition: color 300ms, text-decoration 300ms;
+}
+.HomeHeader nav li:hover,
+.HomeHeader nav li.active {
+  color: rgba(var(--font-color-rgb), 1);
+}
+.HomeHeader nav li:hover:not(.active) {
+  text-decoration: underline;
+}
+.HomeHeader nav li::after {
+  display: block;
+  content: "";
+  width: 0;
+  height: 5px;
+  background-color: var(--action-color);
+  border-radius: 5px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: auto;
+  transition: width 500ms ease-in-out;
+}
+.HomeHeader nav li:hover::after,
+.HomeHeader nav li.active::after {
+  width: 100%;
+  left: 0;
+  right: auto;
+}
+.HomeHeader nav li.active::before {
+  display: block;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(var(--action-color-rgb), 0.5),
+    rgba(var(--action-color-rgb), 0.2),
+    rgba(var(--action-color-rgb), 0.05)
+  );
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.HomeHeader nav a {
+  display: flex;
+  align-items: center;
+  height: inherit;
+}
+
+.HomeHeader .menuBtn {
+  display: flex;
+  margin-left: 20px;
+  padding: 8px 16px;
+  font-size: 1.8em;
+  font-weight: 600;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: url("/images/cursor.png") 0 0, pointer;
+  transition: scale 0.3s, color 0.3s;
+}
+.HomeHeader .menuBtn:hover {
+  scale: 1.1;
+  color: var(--action-color);
+}
+
+.HomeHeader .linksWrapper-menuOpen {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  transform: translate(0, 100%);
+
+  width: 100%;
+  height: auto;
+  max-height: 0;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--secondary-color);
+  box-shadow: 0px 1px 5px #0008;
+  font-size: 1.2em;
+  font-weight: 600;
+  overflow: hidden;
+  transition: max-height 1s linear;
+}
+.HomeHeader .linksWrapper-menuOpen.open {
+  max-height: 300px;
+}
+.HomeHeader .linksWrapper-menuOpen li {
+  width: 100%;
+  padding: 16px;
+  text-align: center;
+  transition: color 0.3s, scale 0.3s;
+  position: relative;
+}
+.HomeHeader .linksWrapper-menuOpen li:hover,
+.HomeHeader .linksWrapper-menuOpen li.active {
+  color: var(--action-color);
+  scale: 1.1;
+}
+.HomeHeader .linksWrapper-menuOpen li::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  width: 0%;
+  height: 100%;
+  background-color: rgba(var(--action-color-rgb), 0.3);
+  transition: width 0.5s linear;
+}
+.HomeHeader .linksWrapper-menuOpen li:hover::before,
+.HomeHeader .linksWrapper-menuOpen li.active::before {
+  left: 0;
+  width: 100%;
+}
+
+@media screen and (max-width: 900px) {
+  .HomeHeader nav li {
+    padding: 0 16px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .HomeHeader nav li {
+    padding: 0 16px;
+  }
+  .HomeHeader nav ul {
+    display: none;
+  }
+  .HomeHeader .logo {
+    display: flex;
+    align-items: center;
+    width: 100px;
+  }
+}
+@media screen and (min-width: 720px) {
+  .HomeHeader .menuBtn,
+  .HomeHeader .linksWrapper-menuOpen {
+    display: none;
+  }
+}
+
+@keyframes FadeIn {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0%);
+    background-color: var(--secondary-color);
+  }
+}
+@keyframes FadeBgIn {
+  0% {
+    transform: translateY(-100%);
+    background-color: var(--secondary-color);
+  }
+  100% {
+    transform: translateY(0%);
+    background-color: transparent;
+  }
+}

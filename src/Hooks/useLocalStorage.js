@@ -16,71 +16,71 @@ import React from "react";
 
 function useLocalStorage(storageKey) {
     // declaring states
-    const [item, setItem] = React.useState([])
-    const [loading, setLoading] = React.useState(true)
-    const [error, setError] = React.useState(false)
+    const [item, setItem] = React.useState([]);
+    const [loading, setLoading] = React.useState(true);
+    const [error, setError] = React.useState(false);
     // state that indicates when the storage has changed
-    const [onStorageChanged, setOnStorageChanged] = React.useState(false)
+    const [onStorageChanged, setOnStorageChanged] = React.useState(false);
 
-    React.useEffect(()=> {
+    React.useEffect(() => {
         // this scenario indicates the new localstorage has been already loaded. 
-        if(!onStorageChanged && !loading) return null;
+        if (!onStorageChanged && !loading) return undefined;
 
-        if(onStorageChanged) {
-            setLoading(true)
+        if (onStorageChanged) {
+            setLoading(true);
         }
 
         // simulate loading process
         setTimeout(() => {
             try {
-                const storageItem =  localStorage.getItem(storageKey)
-                let parsedItem = JSON.parse(storageItem)
-                
-                if(!parsedItem) {
-                    parsedItem = []
-                    localStorage.setItem( storageKey, JSON.stringify(parsedItem) )
+                const storageItem = localStorage.getItem(storageKey);
+                let parsedItem = JSON.parse(storageItem);
+
+                if (!parsedItem) {
+                    parsedItem = [];
+                    localStorage.setItem(storageKey, JSON.stringify(parsedItem));
                 }
 
-                setItem(parsedItem)
-                setLoading(false)
-                if(onStorageChanged) setOnStorageChanged(false);
-            }catch(err) {
-                setError(true)
-                console.error("ERROR: ", err)
+                setItem(parsedItem);
+                setLoading(false);
+                if (onStorageChanged) setOnStorageChanged(false);
+            } catch (err) {
+                setError(true);
+                console.error("ERROR: ", err);
             }
-            
-        }, 2300)
-    }, [storageKey, onStorageChanged])
+
+        }, 1000);
+    }, [storageKey, onStorageChanged]);
 
 
-    const saveItem = (newItem)=> {
+    const saveItem = (newItem) => {
         try {
-            const strItem = JSON.stringify(newItem)
-            localStorage.setItem(storageKey, strItem)
-            setItem(newItem)
+            const strItem = JSON.stringify(newItem);
+            localStorage.setItem(storageKey, strItem);
+            setItem(newItem);
 
-        }catch(err) {
-            setError(true)
-            console.error("ERROR: ", err)
+        } catch (err) {
+            setError(true);
+            console.error("ERROR: ", err);
         }
 
-    }
+    };
 
     window.onstorage = () => {
-        const strItem = JSON.stringify(item)
-        const storageItem = localStorage.getItem(storageKey)
+        const strItem = JSON.stringify(item);
+        const storageItem = localStorage.getItem(storageKey);
 
-        if(strItem !== storageItem) {
-            setOnStorageChanged(true)
+        if (strItem !== storageItem) {
+            setOnStorageChanged(true);
         }
     };
 
     return {
-        item, 
+        item,
         saveItem,
         loading,
         error
-    }
+    };
 }
 
-export { useLocalStorage }
+export { useLocalStorage };

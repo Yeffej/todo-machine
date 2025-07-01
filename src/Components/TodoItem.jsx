@@ -1,6 +1,9 @@
 // Styles
 import '../Styles/TodoItem.css';
 
+import { MdDeleteForever } from "react-icons/md";
+import { FaCheck } from "react-icons/fa";
+
 const TodoItem = ({ 
     id,
     Text,
@@ -8,12 +11,18 @@ const TodoItem = ({
     onCompleted,
     onDeleted
 })=> {
+
+    const handleDelete = () => {
+        if(confirm(`Deseas eliminar el todo: "${Text}"?`)) {
+            onDeleted(id)
+        }
+    }
     
     return (
         <div className={`TodoItem ${Completed? "completed" : ""}`}>
-            <i onClick={()=> onCompleted(id)} className="icon icon-complete">✔</i>
+            <i onClick={()=> onCompleted(id)} className="icon icon-complete"><FaCheck/></i>
             <p className="TodoItem_description">{Text}</p>
-            <i onClick={()=> onDeleted(id)} className="icon icon-delete">X</i>
+            <i onClick={handleDelete} className="icon icon-delete"><MdDeleteForever /></i>
         </div>
     )
 }

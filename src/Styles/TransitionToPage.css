@@ -1,0 +1,46 @@
+.TransitionToPage {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.TransitionToPage .row {
+  flex: 1;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.TransitionToPage .block {
+  flex: 1;
+  background-color: var(--action-color);
+  transform: scaleY(1);
+  animation-name: Unveil;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+  animation-duration: 1s;
+  animation-delay: calc(1s / var(--total) * var(--idx));
+}
+.TransitionToPage .block.veil {
+  animation-name: Veil;
+  transform: scaleY(0);
+}
+.TransitionToPage .top .block {
+  transform-origin: center top;
+}
+.TransitionToPage .bottom .block {
+  transform-origin: center bottom;
+}
+
+@keyframes Unveil {
+  to {
+    transform: scaleY(0);
+  }
+}
+@keyframes Veil {
+  to {
+    transform: scaleY(1);
+  }
+}

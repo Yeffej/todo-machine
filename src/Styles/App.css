@@ -1,22 +1,25 @@
-/* GLOBAL STYLES */
-:root {
-  --background: linear-gradient(60deg, #fff, #7c7a7a);
-  --fontColor: #000;
-  --font: 'Roboto', sans-serif;
+.card {
+  padding: 2em;
 }
 
-body {
-  background: var(--background);
-  font-family: var(--font);
-  color: var(--fontColor);
-  margin: 0;
-  min-height: 100vh;
+.read-the-docs {
+  color: #888;
 }
 
-#root {
+/* Minimalistic app styles */
+.app-container {
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  max-width: 1100px;
+  margin: 6rem auto 3rem auto;
+  padding: 24px;
+  background: var(--secondary-color);
+  border-radius: 18px;
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.07);
+}
+
+@media screen and (max-width: 1100px) {
+  .app-container {
+    width: 90%;
+  }
 }
 

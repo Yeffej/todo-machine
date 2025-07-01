@@ -1,78 +1,73 @@
 .TodoForm {
-   display: flex;
-   align-items: center;
-   flex-direction: column;
-   width: 100%;
-   min-width: 250px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  min-width: 250px;
 }
 
 .TodoForm label {
-    color: #000000;
-    font-size: 1.3em;
-    font-weight: 900;
-    text-decoration: underline;
-    margin-bottom: 15px;
-    letter-spacing: 4px;
-    text-shadow: 0px 0px 8px rgba(155, 155, 155, 0.6);
+  font-size: 1.3em;
+  font-weight: 900;
+  margin: 15px 0;
 }
 
 .TodoForm textarea {
-    width: 70%;
-    height: 150px;
-    padding: 8px;
-    font-size: 1.5em;
-    font-weight: 600;
-    outline:  3px solid #eeeeee;
-    box-shadow: 1px 1px 5px 1px #302e2e;
-    border: solid 2px #000000;
-    box-sizing: border-box;
+  width: 70%;
+  height: 150px;
+  padding: 8px;
+  font-size: 1.5em;
+  font-weight: 600;
+  box-sizing: border-box;
+  border: solid 2px var(--font-color);
+  box-sizing: border-box;
+  transition: border 0.3s, box-shadow 0.3s;
 }
-
-.TodoForm textarea::placeholder {
-    font-size: 1.2em;
-    font-weight: 600;
+.TodoForm textarea:focus {
+  outline: none;
+  border: solid 3px var(--action-color);
+  box-shadow: 0 0 5px var(--action-color);
 }
 
 .TodoForm_btnWrapper {
-    margin: 15px 0;
+  margin: 15px 0;
 }
 .TodoForm .btn {
-    color: #000000;
-    font-weight: 600;
-    font-size: 1em;
-    border-radius: 3px;
-    border: none;
-    padding: 5px;
-    cursor: pointer;
-    transition: transform 200ms;
+  color: #000000;
+  font-weight: 600;
+  font-size: 1em;
+  border-radius: 3px;
+  border: none;
+  padding: 5px;
+  color: var(--font-color2);
+  cursor: pointer;
+  transition: transform 200ms;
 }
 .TodoForm .btn:active {
-    transform: scale(0.7);
+  transform: scale(0.7);
 }
 .TodoForm .btn.cancel {
-    background-color: #222;
-    color: #fff;
-    margin-right: 10px;
+  background-color: var(--reject-color);
+  margin-right: 10px;
 }
 .TodoForm .btn.create {
-    background-color: #fff;
-    margin-left: 10px;
+  background-color: var(--action-color-darker);
+  margin-left: 10px;
 }
 
-
 @media screen and (max-width: 490px) {
-    .TodoForm {
-        width: 280px;
-    }
-    .TodoForm label {
-        font-size: 1.1em;
-    }
-    .TodoForm textarea {
-        width: 85%;
-        height: 80px;
-        font-size: 1.2em;
-    }
-    .TodoForm textarea::placeholder {
-        font-size: 0.9em;
-    }
+  .TodoForm {
+    width: 280px;
+  }
+  .TodoForm label {
+    font-size: 1.1em;
+  }
+  .TodoForm textarea {
+    width: 85%;
+    height: 80px;
+    font-size: 1.2em;
+  }
+  .TodoForm textarea::placeholder {
+    font-size: 0.9em;
+  }
 }

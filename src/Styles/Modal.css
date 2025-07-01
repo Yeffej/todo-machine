@@ -11,7 +11,7 @@
 }
 
 .Modal-Content {
-    background: linear-gradient(#fff, #ddd, #666);
+    background-color: var(--secondary-color);
     border-radius: 5px;
     padding: 10px;
     animation-duration: 1s;

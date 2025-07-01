@@ -1,45 +1,52 @@
 .TodoItem {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-radius: 8px;
-    box-sizing: border-box;
-    box-shadow: 0px 0px 6px 1px #ffffff,
-                0px 0px 5px 1px #000000;
-    padding: 8px;
-    margin-bottom: 15px;
+  padding: 8px;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px;
+  box-sizing: border-box;
+  box-shadow: 1px 1px 5px #2224;
+  /* cursor: grab; */
+  transition: box-shadow 0.2s, transform 0.15s;
+  animation: fadeIn 0.4s;
+}
+.TodoItem:hover {
+  box-shadow: 1px 4px 16px #2223;
+  transform: translateY(-2px) scale(1.02);
 }
 
-.TodoItem_description{
-    font-size: 1.1em;
-    font-weight: 600;
+.TodoItem_description {
+  font-size: 1.1em;
+  font-weight: 600;
+  text-align: center;
 }
 
 .icon {
-    padding: 6px;
-    font-weight: 900;
-    font-size: 1.2em;
-    cursor: pointer;
+  padding: 6px;
+  font-weight: 900;
+  font-size: 1.2em;
+  cursor: pointer;
 }
 .icon-complete {
-    margin-left: 10px;
-    color: #00a023;
+  margin-left: 10px;
+  color: #00a023;
 }
 .icon-delete {
-    margin-right: 10px;
-    font-style: normal;
-    color: #ff3434;
+  margin-right: 10px;
+  font-style: normal;
+  color: #ff3434;
 }
 
-.TodoItem.completed  .TodoItem_description {
-    text-decoration: line-through;
+.TodoItem.completed .TodoItem_description {
+  text-decoration: line-through;
 }
 .TodoItem.completed {
-    opacity: 0.5;
+  opacity: 0.5;
 }
 
 @media screen and (max-width: 490px) {
-    .TodoItem_description {
-        font-size: 0.9em;
-    }
+  .TodoItem_description {
+    font-size: 0.9em;
+  }
 }

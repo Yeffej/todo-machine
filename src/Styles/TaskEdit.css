@@ -1,0 +1,44 @@
+.TaskEdit {
+  width: 90%;
+  max-width: 400px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 1px 1px 8px #0008;
+  border-radius: 5px;
+}
+
+.TaskEdit h2 {
+  font-size: 1.5rem;
+}
+
+.TaskEdit input {
+  width: 100%;
+  margin-bottom: 16px;
+  padding: 12px;
+  font-weight: 0.9rem;
+}
+.TaskEdit input:focus-visible {
+  outline: var(--action-color) auto 2px;
+}
+
+.TaskEdit button {
+  min-width: 90px;
+  margin: 10px;
+  padding: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  background-color: var(--action-color-darker);
+  color: #fff;
+  border: none;
+  outline: none;
+  transition: scale 0.3s;
+}
+.TaskEdit button.cancel {
+  background-color: var(--reject-color);
+}
+
+.TaskEdit button:active {
+  scale: 0.8;
+}
