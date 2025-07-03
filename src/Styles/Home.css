@@ -132,8 +132,11 @@
 }
 
 .HomeServices .title-wrapper {
-  max-width: 600px;
+  max-width: 712px;
   margin-bottom: 32px;
+}
+.HomeServices .title-wrapper p {
+  text-align: justify;
 }
 .HomeServices h2 {
   margin: 16px 0;

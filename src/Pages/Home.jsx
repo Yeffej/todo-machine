@@ -1,12 +1,10 @@
 import '../Styles/Home.css';
 
-import { BASE } from '../constants';
 import { FaTasks } from "react-icons/fa";
 import { BiTask } from "react-icons/bi";
 import HomeHeader from '../Components/HomeHeader';
 import { useEffect, useRef } from 'react';
 import useAnimationFrame from '../Hooks/useAnimationFrame';
-import { Link } from 'wouter';
 import { useTransitionNavigation } from "../Hooks/useTransitionNavigation";
 import TransitionToPage from '../Components/TransitionToPage';
 
@@ -49,10 +47,11 @@ const HomeContent = ({ ref, navigate }) => {
 const HomeServices = ({ navigate }) => (
   <section id="services" className="HomeServices">
     <div className="title-wrapper">
-      <h2>Why will you choose Coders AI Sdn Bhd?</h2>
+      <h2>Looking for power or simplicity in your workflow?</h2>
       <p>
-        As a SAAS expert, we have mindset and compilation of strategies to help customers
-        get value out of a product or service.
+        Whether you need an all-in-one system to manage complex projects or a clean,
+        distraction-free space to organize your day, we offer both. Choose the tool
+        that matches your pace — one built for full control, the other for effortless clarity.
       </p>
     </div>
     <div className="cards-wrapper">
@@ -63,8 +62,7 @@ const HomeServices = ({ navigate }) => (
         <div>
           <h3>Full Task Manager</h3>
           <p>
-            Every web application that we design are always be viewable and responsive
-            from modern portable devices.
+            Built for teams and power users — manage tasks, timelines, and workflows all in one place.
           </p>
         </div>
         <button onClick={() => navigate('/app')}>Launch</button>
@@ -76,8 +74,8 @@ const HomeServices = ({ navigate }) => (
         <div>
           <h3>Simple Task Manager</h3>
           <p>
-            Every web application that we design are always be viewable and responsive
-            from modern portable devices.
+            A minimalist task app designed for clarity, speed, and getting things done
+            without distractions.
           </p>
         </div>
         <button onClick={() => navigate('/simple')}>Launch</button>
@@ -112,14 +110,15 @@ const Home = () => {
   };
 
   useAnimationFrame((clock) => {
-    mouse.current.x += (target.current.x - mouse.current.x) * clock.deltaTime * 3;
-    mouse.current.y += (target.current.y - mouse.current.y) * clock.deltaTime * 3;
+    mouse.current.x += (target.current.x - mouse.current.x) * clock.deltaTime * 0.5;
+    mouse.current.y += (target.current.y - mouse.current.y) * clock.deltaTime * 0.5;
 
-    const diff = 30;
     const beforeX = mouse.current.x * 100;
-    const beforeY = (mouse.current.y + 0.5) * 100 + mouse.current.y * diff;
+    let calc = mouse.current.y * 100;
+    const beforeY = calc;
     const afterX = mouse.current.x * 100;
-    const afterY = (mouse.current.y - 0.5) * 100 - mouse.current.y * diff;
+    calc = 10 - mouse.current.y * 10;
+    const afterY = calc;
 
     if (home.current) {
       home.current.style.setProperty('--bx', `${beforeX}%`);
